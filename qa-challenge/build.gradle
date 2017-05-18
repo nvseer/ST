@@ -1,0 +1,38 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile project(':shared-library')
+}
+
+test {
+    String testFile = java.util.Optional.ofNullable(System.getProperty('test.file')).orElse('local');
+    String browser = java.util.Optional.ofNullable(System.getProperty('browser')).orElse("chrome.local");
+
+    systemProperties['browser'] = browser
+    systemProperties['url'] = String.format("http://soltech.net/");
+
+    jvmArgs = ['-Xms1g', '-Xmx4g']
+
+    useTestNG {
+        suites String.format('src/test/resources/%s.xml', testFile)
+    }
+
+    reports.junitXml.destination = "$buildDir/reports/firstRun"
+    reports.html.destination = "$buildDir/reports/firstRun"
+    ignoreFailures = true
+
+    jvmArgs = ['-Xms512m', '-Xmx1g']
+
+    useTestNG() {
+        suites('build/reports/firstRun/testng-failed.xml');
+    }
+
+    testLogging {
+        events "skipped", "failed"
+        showStandardStreams = false
+    }
+}

@@ -1,0 +1,5 @@
+rootProject.name = 'ST'
+rootProject.name = 'ST'
+include 'qa-challenge'
+include 'shared-library'
+

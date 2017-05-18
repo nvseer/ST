@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="QA Testing Challenge" verbose="1" thread-count="10" parallel="tests">
+
+
+
+<!--
+           <parameter name="browser" value="chrome.local"/>
+           <parameter name="url" value="http://soltech.net/"/>
+-->
+
+
+    <test name="SearchCareersAndVerifyJobID">
+        <parameter name="keyword" value="QA"/>
+        <parameter name="position" value="Quality Assurance Automation Engineer"/>
+        <parameter name="jobId" value="2017-1958"/>
+        <classes>
+            <class name="net.soltech.tests.functional.careers.SearchCareersAndVerifyJobId"/>
+        </classes>
+    </test>
+
+
+
+
+</suite>

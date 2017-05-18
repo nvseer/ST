@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+dependencies {
+    //selenium
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: property('selenium.version')
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-server', version: property('selenium.version')
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-remote-driver', version: property('selenium.version')
+
+    //testing frameworks
+    compile group: 'org.testng', name: 'testng', version: property('testng.version')
+
+    //reporting
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: property('log4j.version')
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: property('log4j.version')
+
+    // utils
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: property('commons.lang.version')
+
+    // assertion tools
+    compile group: 'org.assertj', name: 'assertj-core', version: property('assertj.version')
+
+}
